@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
       @date_diff = (@reservation.end_date - @reservation.start_date).to_i
       @reservation.total_amount = @room.price * @date_diff * @reservation.number_of_people
     else
-      redirect_to @room, alert: "開始日・終了日を入力してください"
+      redirect_to @room, notice: "開始日・終了日を入力してください"
     end
   end
 
