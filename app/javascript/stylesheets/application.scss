@@ -1,0 +1,18 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import 'header_footer';
+@import 'top';
+@import 'form';
+@import 'profile-account';
+@import 'rooms';
+
+body {
+    min-height: 100vh;
+    min-width: 450px;
+    position: relative;
+    padding-bottom: 180px;
+    box-sizing: border-box;
+    .btn-primary { background-color: #4a90e2 !important;}
+    .badge-danger { background-color: #ff0000a8 !important; }
+    li {list-style: none;}
+}
