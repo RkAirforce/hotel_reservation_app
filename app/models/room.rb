@@ -3,8 +3,10 @@ class Room < ApplicationRecord
    has_many   :reservations, dependent: :destroy
    has_many   :appointers,   through: :reservations, source: :user
 
-   validates  :name, presence: true
+   validates  :name,        presence: true
    validates  :description, presence: true
+   validates  :price,       presence: true
+   validates  :address,     presence: true
 
    has_one_attached :room_img
    attribute        :new_room_img
