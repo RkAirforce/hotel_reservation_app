@@ -1,24 +1,21 @@
-# README
+# 宿泊施設予約システム
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 使用技術
 
-Things you may want to cover:
+* Ruby 2.6.0
 
-* Ruby version
+* Rails 6.0.2.1
 
-* System dependencies
+* MySQL 8.0.22
 
-* Configuration
+* vue@2.6.12
 
-* Database creation
+# 機能
 
-* Database initialization
+* ユーザー登録/ログイン、プロフィール画像のプレビュー機能
 
-* How to run the test suite
+* 部屋の登録
 
-* Services (job queues, cache servers, search engines, etc.)
+* 部屋の予約
 
-* Deployment instructions
-
-* ...
+* フォームのテキストエリア直下にエラーメッセージを表示させる機能
