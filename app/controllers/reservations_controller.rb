@@ -17,12 +17,7 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new(reservation_params)
     @room = Room.find_by(id: @reservation.room.id)
-    if @reservation.start_date && @reservation.end_date && @reservation.number_of_people
-      @date_diff = (@reservation.end_date - @reservation.start_date).to_i
-      @reservation.total_amount = @room.price * @date_diff * @reservation.number_of_people
-    else
-      redirect_to @room, notice: "開始日・終了日を入力してください"
-    end
+    reservation_validation(@reservation)
   end
 
   # GET /reservations/1/edit
@@ -70,6 +65,10 @@ class ReservationsController < ApplicationController
   end
 
   private
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
