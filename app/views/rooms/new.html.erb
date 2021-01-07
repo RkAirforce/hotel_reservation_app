@@ -69,6 +69,9 @@
               </div>
               <div>
                 <%= form.file_field :new_room_img, autofocus: true, autocomplete: "new_room_img", class: "form-control col-md-9 px-2 mb-4" %>
+                <% if @room.errors.include?(:new_room_img) %>
+                  <p style="color: red;"><%= "※ #{@room.errors.full_messages_for(:new_room_img).first}" %>
+                <% end %>
               </div>
           </div>
 

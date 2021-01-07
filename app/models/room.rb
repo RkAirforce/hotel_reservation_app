@@ -4,6 +4,7 @@ class Room < ApplicationRecord
    has_many   :appointers,   through: :reservations, source: :user
 
    validates  :name,        presence: true
+   validates  :new_room_img, presence: true
    validates  :description, presence: true
    validates  :price,       presence: true
    validates  :address,     presence: true
