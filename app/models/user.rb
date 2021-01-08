@@ -4,10 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name,          presence: true, length: { maximum: 50 }
+  validates :name,          presence: true, length: { maximum: 50 },
+                            uniqueness: { case_sensitive: true }
   validates :description,   presence: true, length: { maximum: 1000 }
-  has_many  :rooms,          dependent: :destroy
-
   has_many  :rooms,          dependent: :destroy
   has_many  :reservations,   dependent: :destroy
   has_many  :reserved_rooms, through:   :reservations, source: :room
