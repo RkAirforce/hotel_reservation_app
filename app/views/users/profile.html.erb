@@ -1,5 +1,5 @@
+<p id="notice"><%= notice %></p>
 <div class="container-fluid">
-  <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col-lg-2 user-nav user-nav-pc border-right d-lg-block d-none">
       <ul>
@@ -42,6 +42,9 @@
           </div>
           <%= f.text_field :name, autofocus: true, autocomplete: "name",
                   class: "form-control col-md-9 px-2 mb-4", placeholder: "" %>
+          <% if resource.errors.include?(:name) %>
+            <p class="pt-1" style="color: red;"><%= "※ #{resource.errors.full_messages_for(:name).first}" %>
+          <% end %>
         </div>
 
         <div class="form-group form-row p-3 mx-2 border-bottom">
@@ -51,6 +54,9 @@
           </div>
           <%= f.text_field :description, autofocus: true, autocomplete: "description",
                   style: "height: 150px;", class: "form-control col-md-9 px-2 mb-4", placeholder: "自己紹介を入力" %>
+          <% if resource.errors.include?(:description) %>
+            <p class="pt-1" style="color: red;"><%= "※ #{resource.errors.full_messages_for(:description).first}" %>
+          <% end %>
         </div>
 
         <div class="actions pb-3 p-3 mx-2">

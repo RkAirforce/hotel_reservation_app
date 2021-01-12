@@ -1,9 +1,13 @@
-<div class="container">
-  <div class="login-form-wrapper col-md-6 offset-md-3 col-sm-12 text-center rounded shadow">
+<% if alert %><div class="alert alert-danger text-center"><%= alert %></div><% end %>
+<div class="container mb-5">
+  <div class="login-form-wrapper col-md-6 offset-md-3 col-sm-12 text-center rounded border shadow-sm">
     <p class="my-4">ログイン</p>
 
     <div class="form-trim col-md-10 offset-md-1 col-sm-12 col-xs-12">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <% resource.errors.full_messages.each do |msg| %>
+          <%= msg %>
+        <% end %>
         <div class="field form-group form-row">
           <div class="col-2 required-b pt-2"><span class="badge badge-danger p-1">必須</span></div>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス",
